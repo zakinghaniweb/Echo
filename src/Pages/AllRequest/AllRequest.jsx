@@ -14,7 +14,7 @@ const AllRequest = () => {
     const db = getDatabase()
     // == Functions
     useEffect(()=>{
-      onValue(ref(db, 'allFriends/'), (snapshot) => {
+      onValue(ref(db, 'allRequest/'), (snapshot) => {
           let array = []
           let array2 = []
           snapshot.forEach((item) => {
