@@ -1,0 +1,13 @@
+.buttonV1{
+    @apply
+    font-Poppins
+    font-bold
+    text-[16px]
+    py-[10px]
+    px-[20px]
+    flex
+    items-center
+    gap-[8px]
+    transition-all
+    rounded-sm
+}

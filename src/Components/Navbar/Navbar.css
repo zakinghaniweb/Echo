@@ -1,0 +1,105 @@
+.navbar{
+    @apply
+    h-[50px]
+    bg-white
+    shadow-md
+    flex
+    justify-center
+    items-center
+    shadow-[#00000033]
+    cursor-pointer
+    absolute
+    right-[100px]
+    top-[50px]
+    border-[1px]
+    border-gray-200
+    duration-500
+    focus:bg-red-700
+}
+.menu-toggle{
+    @apply
+    p-[10px]
+}
+.navbar svg{
+    @apply
+    text-gray-500
+    text-[20px]
+}
+.closeNav{
+    @apply
+    w-[50px]
+    rounded-full
+}
+.openNav{
+    @apply
+    w-[400px]
+    rounded-full
+}
+.navbar-item{
+    @apply
+    absolute
+    translate-y-[-50%]
+    duration-500
+}
+.navbar-item a{
+    @apply
+    relative
+    h-[50px]
+    flex
+    items-center
+    text-center
+}
+.navbar-item a:hover .item-info{
+    @apply
+    opacity-100
+    scale-100
+}
+.navbar-item a .item-info{
+    @apply
+    absolute
+    opacity-0
+    left-[50%]
+    top-[-40px]
+    translate-x-[-50%]
+    py-[5px]
+    px-[10px]
+    bg-white
+    shadow-sm
+    shadow-[#00000034]
+    font-Poppins
+    font-semibold
+    text-[14px]
+    text-gray-500
+    scale-0
+    duration-150
+}
+.navbar-item svg{
+    @apply
+    text-gray-400
+    text-[24px]
+}
+.closeItems{
+    @apply
+    top-[0%]
+    opacity-0
+    scale-0
+}
+.openItems{
+    @apply
+    top-[50%]
+    opacity-100
+    scale-100
+}
+.navbar-item-left{
+    @apply
+    left-[30px]
+}
+.navbar-item-right{
+    @apply
+    right-[30px]
+}
+.navbar-item ul{
+    @apply
+    flex
+    gap-7
+}

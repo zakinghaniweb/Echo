@@ -1,0 +1,162 @@
+.mainForm{
+    @apply
+    w-full
+    h-screen
+    bg-bgColor
+    flex
+    justify-center
+    items-center
+}
+.formBg{
+    @apply
+    w-[1512px]
+    rounded-[70px]
+    bg-[url('authBg.png')]
+    bg-no-repeat
+    bg-cover
+    bg-center
+    py-[66px]
+    pl-[62px]
+    overflow-hidden
+}
+.authForm{
+    @apply
+    w-[700px]
+    h-[850px]
+    pt-[54px]
+    rounded-[50px]
+    backdrop-blur-[8px]
+    border-[3px]
+    border-[#f4f4f474]
+    ;
+    background: linear-gradient(to bottom right, #ffffff6d 0%, #f4f4f433 100%);
+}
+.authForm .leaf{
+    @apply
+    absolute
+    bottom-[-59px]
+    right-[-597px]
+    scale-[103%]
+}
+.authForm h1{
+    @apply
+    font-Poppins
+    font-bold
+    text-[52px]
+    text-white
+    text-center
+}
+.authForm p{
+    @apply
+    font-Poppins
+    font-medium
+    text-[16px]
+    text-white
+    text-center
+    mb-[74px]
+}
+.authForm p a{
+    @apply
+    text-brandColor
+}
+.authForm form{
+    @apply
+    pl-[67px]
+    pr-[115px]
+}
+.authForm label{
+    @apply
+    font-Poppins
+    font-bold
+    text-[18px]
+    text-white
+    block
+}
+.input-group{
+    @apply
+    mb-[30px]
+}
+.authForm input{
+    @apply
+    font-Poppins
+    font-normal
+    text-[16px]
+    text-white
+    bg-transparent
+    border-b-[3px]
+    border-white
+    w-full
+}
+.authForm .authSubmit{
+    @apply
+    font-Poppins
+    font-bold
+    text-[16px]
+    text-[#696969]
+    py-[13px]
+    px-[120px]
+    bg-brandColor
+    hover:bg-brandColorHover
+    transition-all
+    rounded-lg
+    mx-auto
+    block
+    flex
+    justify-center
+    items-center
+    mt-[16px]
+    mb-[43px]
+}
+.otherOption{
+    @apply
+    font-Poppins
+    font-medium
+    text-[16px]
+    text-white
+    text-center
+    mb-[30px]
+}
+.otherOption::before{
+    @apply
+    content-['']
+    w-[200px]
+    h-[3px]
+    bg-white
+    inline-block
+    mr-[10px]
+    mb-[3px]
+    rounded-full
+}
+.otherOption::after{
+    @apply
+    content-['']
+    w-[200px]
+    h-[3px]
+    bg-white
+    inline-block
+    ml-[10px]
+    mb-[3px]
+    rounded-full
+}
+.otherOptionBtn{
+    @apply
+    flex
+    justify-center
+    gap-[30px]
+}
+.otherOptionBtn button{
+    @apply
+    flex
+    justify-center
+    items-center
+    w-[50px]
+    h-[50px]
+    rounded-xl
+    bg-white
+    shadow-lg
+    shadow-brandColorHover
+}
+.otherOptionBtn button img{
+    @apply
+    w-[30px]
+}

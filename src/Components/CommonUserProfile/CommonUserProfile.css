@@ -1,0 +1,29 @@
+.commonUserProfile{
+    @apply
+    py-[20px]
+    px-[10px]
+    flex
+    items-center
+    gap-[20px]
+}
+.commonUserProfile .userPfp{
+    @apply
+    w-[100px]
+    h-[100px]
+    rounded-full
+    overflow-hidden
+}
+.commonUserProfile h2{
+    @apply
+    font-Poppins
+    font-bold
+    text-[20px]
+    text-[#252525]
+}
+.commonUserProfile h3{
+    @apply
+    font-Poppins
+    font-medium
+    text-[16px]
+    text-[#484848]
+}

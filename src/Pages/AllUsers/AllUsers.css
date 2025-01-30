@@ -1,0 +1,29 @@
+.allUsersBg{
+    @apply
+    bg-[#ffffff8c]
+    overflow-hidden
+    py-[66px]
+    px-[62px]
+    rounded-[50px]
+    backdrop-blur-xl
+    border-[3px]
+    border-[#f4f4f4ae]
+    relative
+}
+.allUsersRow{
+    @apply
+    flex
+    flex-col
+    items-center
+}
+.allUsersTitle{
+    @apply
+    font-Poppins
+    font-bold
+    text-[20px]
+    text-[#252525]
+    pb-[10px]
+    border-b-[1px]
+    border-[#626262]
+    border-dashed
+}

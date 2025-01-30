@@ -1,0 +1,76 @@
+.userProfile{
+    @apply
+    w-full
+    h-screen
+    bg-[#4CAB72]
+    flex
+    justify-center
+}
+.userCard{
+    @apply
+    flex
+    flex-col
+    items-center
+    bg-white
+    w-[300px]
+    h-[350px]
+    rounded-lg
+    p-[20px]
+    shadow-md
+    shadow-[#2e503c]
+    relative
+    hover:scale-[103%]
+    duration-200
+}
+.userCard .userCardBg{
+    @apply
+    w-full
+    h-[150px]
+    rounded-lg
+    overflow-hidden
+    absolute
+    bg-[#8f620f]
+    top-0
+}
+.userCard .userCardPfp{
+    @apply
+    w-[100px]
+    h-[100px]
+    rounded-full
+    overflow-hidden
+    relative
+    mt-[70px]
+}
+.userCard h1{
+    @apply
+    font-Poppins
+    font-bold
+    text-[20px]
+    text-[#2f2f2f]
+    mt-[15px]
+}
+.userCard h3{
+    @apply
+    font-Poppins
+    font-normal
+    text-[14px]
+    text-[#535353]
+}
+.logout{
+    @apply
+    font-Poppins
+    font-bold
+    text-[16px]
+    text-[#696969]
+    py-[10px]
+    px-[20px]
+    bg-brandColor
+    hover:bg-brandColorHover
+    transition-all
+    rounded-lg
+    mx-auto
+    mt-[20px]
+    flex
+    items-center
+    gap-[5px]
+}
