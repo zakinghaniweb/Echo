@@ -11,6 +11,9 @@ import AllUsers from './Pages/AllUsers/AllUsers'
 import LayoutOne from './Layouts/LayoutOne'
 import Home from './Pages/Home/Home'
 import AllRequest from './Pages/AllRequest/AllRequest'
+import MyFriends from './Pages/MyFriends/MyFriends'
+import BlockList from './Pages/BlockList/BlockList'
+import Notification from './Pages/Notifications/Notification'
 
 function App() {
   const myRoute = createBrowserRouter(
@@ -25,7 +28,9 @@ function App() {
           <Route path='/home' element={<Home />} />
           <Route path='/allUsers' element={<AllUsers />} />
           <Route path='/allRequest' element={<AllRequest />} />
-          <Route path='/myFriends' element={<AllRequest />} />
+          <Route path='/myFriends' element={<MyFriends />} />
+          <Route path='/blocked' element={<BlockList />} />
+          <Route path='/notifications' element={<Notification />} />
         </Route>
       </Route>
     )

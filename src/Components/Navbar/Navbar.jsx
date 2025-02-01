@@ -19,7 +19,7 @@ const Navbar = () => {
                     <FaUsers />
                     <div className="item-info">Users</div>
                 </Link>
-                <Link to={'#'}>
+                <Link to={'/notifications'}>
                     <RiMessage2Fill />
                     <div className="item-info">Messages</div>
                 </Link>
@@ -38,7 +38,7 @@ const Navbar = () => {
                     <FaUserCheck />
                     <div className="item-info">Friends</div>
                 </Link>
-                <Link to={'#'}>
+                <Link to={'/blocked'}>
                     <FaUserMinus />
                     <div className="item-info">Block</div>
                 </Link>

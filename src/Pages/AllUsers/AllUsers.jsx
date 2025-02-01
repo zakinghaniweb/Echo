@@ -4,12 +4,14 @@ import CommonUserProfile from '../../Components/CommonUserProfile/CommonUserProf
 import { useSelector } from 'react-redux'
 import { getDatabase, ref, onValue, push, set, remove } from "firebase/database"
 import ButtonV1 from '../../Components/ButtonV1/ButtonV1'
+import { current } from '@reduxjs/toolkit'
 
 const AllUsers = () => {
   // == State Vars
   const [users, setUsers] = useState([])
   const [sentRequests, setSentRequests] = useState([])
   const [receivedRequests, setReceivedRequests] = useState([])
+  const [friends, setFriends] = useState([])
   // == Redux Vars
   const currentUser = useSelector((state) => state.User.value)
   // == Firebase Vars
@@ -42,9 +44,30 @@ const AllUsers = () => {
       setReceivedRequests(array2)
     })
   }, [])
+  useEffect(() => {
+    onValue(ref(db, 'allFriends/'), (snapshot) => {
+      let array = []
+      snapshot.forEach((item) => {
+        if (item.val().friendId == currentUser.uid) {
+          array[item.val().currentUserId] = item.key
+        }
+        if (item.val().currentUserId == currentUser.uid) {
+          array[item.val().friendId] = item.key
+        }
+      })
+      setFriends(array)
+    })
+  }, [])
   // Send Request (Karo kache request send korar jonne)
   const handleSendRequest = (user) => {
     const newRequestRef = push(ref(db, 'allRequest/'))
+    set(push(ref(db, 'allNotifications/')), {
+      notifySenderId: currentUser.uid,
+      notifyMessage: "New friend request from: " + currentUser.displayName,
+      notifyReceiverId: user.id,
+      notifyMessageCol: "#013220",
+      notifyType: "Friend Request"
+    })
     set(newRequestRef, {
       senderName: currentUser.displayName,
       senderEmail: currentUser.email,
@@ -69,11 +92,18 @@ const AllUsers = () => {
     }
   }
   // Reject Request (Onno joner request cancel kore dibe)
-  const handleRejectRequest = (userId) => {
-    if (receivedRequests[userId]) {
-      remove(ref(db,'allRequest/' + receivedRequests[userId]))
+  const handleRejectRequest = (user) => {
+    if (receivedRequests[user.id]) {
+      set(push(ref(db, 'allNotifications/')), {
+        notifySenderId: currentUser.uid,
+        notifyMessage: "You were rejected by: " + currentUser.displayName,
+        notifyReceiverId: user.id,
+        notifyMessageCol: "#FF0000",
+        notifyType: "Reject"
+      })
+      remove(ref(db,'allRequest/' + receivedRequests[user.id]))
       setReceivedRequests((prev) => {
-        delete {...prev}[userId]
+        delete {...prev}[user.id]
         return prev
       })
     }
@@ -91,11 +121,21 @@ const AllUsers = () => {
         friendName: user.userName,
         friendProfilePicture: user.profilePicture,
         friendId: user.id,
-        friendOf: currentUser.uid
+        currentUserId: currentUser.uid,
+        currentUserName: currentUser.displayName,
+        currentUserEmail: currentUser.email,
+        currentUserProfilePicture: currentUser.photoURL
+      })
+      set(push(ref(db, 'allNotifications/')), {
+        notifySenderId: currentUser.uid,
+        notifyMessage: "You were accepted by: " + currentUser.displayName,
+        notifyReceiverId: user.id,
+        notifyMessageCol: "#013220",
+        notifyType: "Confirm"
       })
     }
   }
-  console.log(receivedRequests)
+  console.log(friends)
   return (
     <div>
         <div className="container">
@@ -110,9 +150,11 @@ const AllUsers = () => {
                       {
                         receivedRequests[user.id] ? (
                         <div className='flex gap-[10px]'>
-                          <ButtonV1 buttonV1Text='Confirm' buttonV1Color='text-[#fff]' buttonV1Bg='bg-[#17a2b8]' buttonV1Click={()=>handleConfirmRequest(user)} />
-                          <ButtonV1 buttonV1Text='Reject' buttonV1Color='text-[#fff]' buttonV1Bg='bg-red-500' buttonV1Click={()=>handleRejectRequest(user.id)} />
+                          <ButtonV1 buttonV1Text='Confirm' buttonV1Color='text-[#fff]' buttonV1Bg='bg-green-500' buttonV1Click={()=>handleConfirmRequest(user)} />
+                          <ButtonV1 buttonV1Text='Reject' buttonV1Color='text-[#fff]' buttonV1Bg='bg-red-500' buttonV1Click={()=>handleRejectRequest(user)} />
                         </div>
+                        ) : friends[user.id] ? (
+                          <ButtonV1 buttonV1Text='Message' buttonV1Color='text-[#fff]' buttonV1Bg='bg-green-500' buttonV1Click={()=>handleCancelRequest(user.id)} />
                         ) : (
                         sentRequests[user.id] ? 
                           <ButtonV1 buttonV1Text='Cancel' buttonV1Color='text-[#fff]' buttonV1Bg='bg-red-500' buttonV1Click={()=>handleCancelRequest(user.id)} />
