@@ -19,7 +19,7 @@ const Navbar = () => {
                     <FaUsers />
                     <div className="item-info">Users</div>
                 </Link>
-                <Link to={'/notifications'}>
+                <Link to={'/messages'}>
                     <RiMessage2Fill />
                     <div className="item-info">Messages</div>
                 </Link>

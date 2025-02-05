@@ -14,6 +14,7 @@ import AllRequest from './Pages/AllRequest/AllRequest'
 import MyFriends from './Pages/MyFriends/MyFriends'
 import BlockList from './Pages/BlockList/BlockList'
 import Notification from './Pages/Notifications/Notification'
+import Message from './Pages/Message/Message'
 
 function App() {
   const myRoute = createBrowserRouter(
@@ -31,6 +32,7 @@ function App() {
           <Route path='/myFriends' element={<MyFriends />} />
           <Route path='/blocked' element={<BlockList />} />
           <Route path='/notifications' element={<Notification />} />
+          <Route path='/messages' element={<Message />} />
         </Route>
       </Route>
     )

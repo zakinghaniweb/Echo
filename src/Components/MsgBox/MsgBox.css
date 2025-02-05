@@ -1,0 +1,155 @@
+.msgBox{
+  @apply
+  flex
+  flex-col
+  justify-between
+  w-full
+  min-h-screen
+  bg-[#171717]
+}
+.friendInfo{
+  @apply
+  h-[100px]
+  bg-[#3A3A3A]
+  flex
+  items-center
+  gap-[20px]
+  px-[20px]
+  rounded-xl
+}
+.friendInfo .userPfp{
+  @apply
+  w-[60px]
+  h-[60px]
+  rounded-full
+  overflow-hidden
+}
+.friendInfo h2{
+  @apply
+  font-Poppins
+  font-semibold
+  text-[18px]
+  text-white
+}
+.friendInfo h3{
+  @apply
+  font-Poppins
+  font-normal
+  text-[14px]
+  text-white
+}
+.msgShow{
+  @apply
+  w-full
+  h-[80vh]
+  overflow-y-auto
+  p-[30px]
+}
+.msgShow .msgCol{
+  @apply
+  flex
+  flex-col
+  gap-[5px]
+}
+.msgCol .singleMsg{
+  @apply
+  w-fit
+  min-h-[50px]
+  bg-white
+  flex
+  justify-center
+  items-center
+  px-[20px]
+  py-[5px]
+  rounded-full
+  break-words
+  self-end
+}
+.msgCol .singleMsg p{
+  @apply
+  font-Poppins
+  font-semibold
+  text-[16px]
+  text-[#252525]
+}
+.msgCol .friendMsg{
+  @apply
+  w-fit
+  min-h-[50px]
+  bg-[#3A3A3A]
+  flex
+  justify-center
+  items-center
+  px-[20px]
+  py-[5px]
+  rounded-full
+  break-words
+}
+.msgCol .friendMsg p{
+  @apply
+  font-Poppins
+  font-semibold
+  text-[16px]
+  text-white
+}
+.msgSendInput{
+  @apply
+  w-full
+  h-[70px]
+  self-end
+  relative
+  mb-[5px]
+}
+.msgSendInput form{
+  @apply
+  flex
+  items-center
+  gap-[20px]
+  px-[20px]
+}
+.msgSendInput input{
+  @apply
+  w-[100%]
+  min-h-[60px]
+  bg-[#3A3A3A]
+  rounded-full
+  border-0
+  outline-0
+  text-white
+  font-Poppins
+  font-semibold
+  text-[16px]
+  px-[20px]
+}
+.msgSendInput .emojiToggle{
+  @apply
+  bg-white
+  text-[28px]
+  cursor-pointer
+  p-[7px]
+  rounded-full
+  hover:text-white
+  hover:bg-black
+  duration-200
+}
+.msgSendInput .sendMessage{
+  @apply
+  bg-white
+  text-[18px]
+  p-[12px]
+  rounded-lg
+  hover:text-white
+  hover:bg-black
+  duration-200
+  flex
+  items-center
+  gap-[10px]
+  font-bold
+  font-Poppins
+}
+.emoji-picker{
+  @apply
+  absolute
+  right-[50px]
+  bottom-[80px]
+}
