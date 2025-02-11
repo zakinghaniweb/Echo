@@ -35,20 +35,20 @@ const Login = () => {
             signInWithEmailAndPassword(auth, loginData.email, loginData.password)
             .then((userCredential) => {
               const user = userCredential.user;
-              // if (!user.emailVerified) {
-              //   toast.error('Email is not verified', {
-              //       position: "bottom-center",
-              //       autoClose: 5000,
-              //       hideProgressBar: false,
-              //       closeOnClick: false,
-              //       pauseOnHover: true,
-              //       draggable: true,
-              //       progress: undefined,
-              //       theme: "colored",
-              //       transition: Slide,
-              //     });
-              //     setLoading(false)
-              // } else {
+              if (!user.emailVerified) {
+                toast.error('Email is not verified', {
+                    position: "bottom-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    transition: Slide,
+                  });
+                  setLoading(false)
+              } else {
                 setLoading(false)
                 navigate('/home')
                 toast.success('Login Successful', {
@@ -69,7 +69,7 @@ const Login = () => {
                   email: user.email,
                   profilePicture : user.photoURL
                 });
-              // }
+              }
             })
             .catch((error) => {
               const errorCode = error.code;
